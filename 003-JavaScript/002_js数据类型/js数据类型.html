@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js数据类型</title>
+  </head>
+  <body>
+    <script>
+      // js 的数据类型分为两大类
+      // 基本数据类型：
+      //  1. Boolean      
+      //  2. String       // 不可变
+      //  3. Number       // -2^53-1 到 2^53-1
+      //  4. Undefined    // 声明变量但是没有初始化
+      //  5. null         // 实质是一个空对象，但是 null == undefined
+      //  6. symbol       // 唯一不可变的字符实例
+      //  7. BigInt       // 可以操作超过数字类型的安全整数限制
+      let num = 123;
+      console.log(0 / 0); // NaN
+      let boo = true;
+      let str = "12";
+      console.log(null == undefined); // true
+      let sym = Symbol("foo");
+      let sy = Symbol("foo");
+      console.log(sym == sy);
+      // 复杂数据类型（对象）：
+      //  1. Object
+      //  2. Array
+      //  3 Function
+      //  Date, RegExp, Map, Set 等等
+
+      // 存储区别：
+      // 基本数据类型存储在栈中
+      // 引用数据类型存储在堆中，所以栈内存中存放的是只想堆内存的地址
+      // 简单数据类型赋值，生成相同的值，两个变量对应不同的地址
+      // 引用数据类型赋值，将保存数据的内存地址赋值给另外一个变量。
+    </script>
+  </body>
+</html>
