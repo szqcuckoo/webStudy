@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <BOdy {...props}></BOdy>
+    <script>
+      // function fn(a) {
+      //   console.log(1);
+      //   var a = 2;
+      //   function a() {}
+      //   console.log(a);
+      // }
+      // fn(1);
+
+      // var a = true
+      // function fun(){
+      //   console.log(a);
+      //   if(!a){
+      //     var a = 3
+      //   }
+      //   console.log(a);
+      // }
+      // fun()
+
+      // var a = 4,b=6
+      // function A(a){
+      //   // var A = undefined
+      //   A = function(b){
+      //     console.log('什么时候');
+      //     console.log(a+b++);
+      //   }
+      //   console.log('执行了几次');
+      //   console.log(A);
+      //   console.log(a++);
+      // }
+      // A(1)
+      // // A(1)
+      // console.log(A);
+
+      var a = {},
+        b = { key: "b" },
+        c = { key: "c" }
+
+      a[b] = 123
+      console.log(a, "b")
+      a[c] = 456
+      console.log(a, "c")
+      a[{}] = 789
+      console.log(a[b])
+      console.log(Object.keys(a))
+      console.log(a)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test"></div>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script type="text/babel">
+      // 1. 创建函数式组件
+      function Demo() {
+        console.log(this);  // 此处的 this 是undefined 因为babel 添加了 严格模式
+        return <h2>我是函数定义的组件，适用于简单的组件定义</h2>
+      }
+      // 2. 渲染组件到页面
+      ReactDOM.render(<Demo />, document.getElementById('test'))
+      /* 
+        1. 解析组件标签
+        2. 发现是函数组件，调用函数组件渲染页面
+      */
+    </script>
+  </body>
+</html>

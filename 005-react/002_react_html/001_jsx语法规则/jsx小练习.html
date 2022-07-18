@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test"></div>
+
+    <!-- 引入 react 核心库 -->
+    <script src="../js/react.development.js"></script>
+    <!-- 引入 react dom 库 -->
+    <script src="../js/react-dom.development.js"></script>
+    <!-- 引入 Babel，将 jsx 转化为 jsx -->
+    <script src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+
+
+      const arr = ["Angular", "vue", "React"];
+      // 1. 创建虚拟 dom
+      const VDOM = (
+        <div>
+          <h1>前端js框架列表</h1>
+          <ul>
+            {arr.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ); // 此处不要写引号
+      // 2. 渲染虚拟dom到页面上
+      ReactDOM.render(VDOM, document.getElementById("test"));
+      /* 
+        jsx 语法规则
+        1. 定义虚拟dom ，不要写引号
+        2. 类名要写className
+        3. 内联样式要写成对象的形式
+        4. 标签内部混入js表达式要写 {}
+        5. 不能有多个根标签，可以使用 <></>
+        6. 标签首字母
+          1. 小写字母开头，会转换成同名标签，html中没有则报错
+          2. 大写字母开头，会渲染对应的组件，没有则报错
+      */
+    </script>
+  </body>
+</html>

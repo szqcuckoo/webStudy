@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test"></div>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script type="text/babel">
+      class Weather extends React.Component {
+        // 构造器调用了几次------1次
+        constructor(props) {
+          console.log('constructor');
+          super(props)
+          this.state = {
+            isHot: false,
+            wind:'微风'
+          }
+          // 解决 changeWeather 的this 指向问题
+          // this.changeWeather = this.changeWeather.bind(this)
+        }
+        changeWeather = () => {
+          // 点击几次，调用几次
+          // 类中的方法，默认开启了局部的严格模式
+          // changeWeather，作为 onClick 的回调，所以不是通过实例调用
+          // console.log("点击", this)
+          const isHot = this.state.isHot
+          // TODO: state 不可以直接更改
+          // this.state.isHot = !isHot  // 这是错误的写法
+          this.setState({ isHot: !isHot })
+          // 状态必须通过 this.setState 修改，并且更新是一种合并操作，而不是替换操作
+          console.log(this)
+        }
+        render() {
+          // render 调用 n+次
+          console.log('render');
+          const { isHot } = this.state
+          return (
+            <h2 onClick={this.changeWeather}>
+              今天天气很{isHot ? "热" : "冷"}
+            </h2>
+          )
+        }
+      }
+      ReactDOM.render(<Weather />, document.getElementById("test"))
+
+      // const w = new Weather()
+      // w.changeWeather()
+    </script>
+  </body>
+</html>
