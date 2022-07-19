@@ -28,3 +28,14 @@ if(){}
 for(){}
 switch(){case:xxx break}
 ```
+
+构造器函数
+
+```
+通常，在 React 中，构造函数仅用于以下两种情况：
+
+通过给 this.state 赋值对象来初始化内部 state。
+为事件处理函数绑定实例
+
+构造器是否接收props，是否传递给super，取决于是否希望在构造器中使用this.props
+```

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arr1 = [1, 2, 3, 4]
+      const arr2 = [3, 4, 5, 6]
+      console.log(...arr1)
+      const arr3 = [...arr1, ...arr2]
+      console.log(arr3)
+      function sum(...numbers) {
+        return numbers.reduce((pre, current) => pre + current)
+      }
+      console.log(sum(1, 2))
+      const person = {name:'tom',age:15}
+      let person2 = {...person}
+      console.log(person2);
+      let person3 = {...person,name:'jack'}
+      console.log(person3);
+    </script>
+  </body>
+</html>
