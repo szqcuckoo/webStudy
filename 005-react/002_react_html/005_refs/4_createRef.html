@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>对props进行限制</title>
+  </head>
+  <body>
+    <!-- 准备好一个“容器” -->
+    <div id="test1"></div>
+    <div id="test2"></div>
+    <div id="test3"></div>
+
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <!-- 引入react-dom，用于支持react操作DOM -->
+    <script
+      type="text/javascript"
+      src="../js/react-dom.development.js"
+    ></script>
+    <!-- 引入babel，用于将jsx转为js -->
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <!-- 引入prop-types，用于对组件标签属性进行限制 -->
+    <script type="text/javascript" src="../js/prop-types.js"></script>
+
+    <script type="text/babel">
+      class Demo extends React.Component {
+        /* 
+          该容器是专人专用
+        */
+        myRef = React.createRef()
+        showData = () => {
+          console.log(this.myRef.current.value)
+        }
+
+        render() {
+          return (
+            <div>
+              <input
+                ref={this.myRef}
+                type="text"
+                placeholder="点击按钮提示数据"
+              />
+              &nbsp;
+              <button onClick={this.showData}>点我提示左侧的数据</button>&nbsp;
+            </div>
+          )
+        }
+      }
+      ReactDOM.render(<Demo />, document.getElementById("test1"))
+    </script>
+  </body>
+</html>

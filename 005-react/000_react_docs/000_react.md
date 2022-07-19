@@ -39,3 +39,10 @@ switch(){case:xxx break}
 
 构造器是否接收props，是否传递给super，取决于是否希望在构造器中使用this.props
 ```
+
+受控组件和非受控组件
+
+```javascript
+维护状态的及时受控组件
+请勿过度使用 refs
+```

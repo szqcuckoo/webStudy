@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>对props进行限制</title>
+  </head>
+  <body>
+    <!-- 准备好一个“容器” -->
+    <div id="test1"></div>
+    <div id="test2"></div>
+    <div id="test3"></div>
+
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <!-- 引入react-dom，用于支持react操作DOM -->
+    <script
+      type="text/javascript"
+      src="../js/react-dom.development.js"
+    ></script>
+    <!-- 引入babel，用于将jsx转为js -->
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <!-- 引入prop-types，用于对组件标签属性进行限制 -->
+    <script type="text/javascript" src="../js/prop-types.js"></script>
+
+    <script type="text/babel">
+      class Demo extends React.Component {
+        /* 
+          1.	通过onXxx属性指定事件处理函数(注意大小写)
+            1)	React使用的是自定义(合成)事件, 而不是使用的原生DOM事件--------为了更好的兼容性
+            2)	React中的事件是通过事件委托方式处理的(委托给组件最外层的元素)
+          2.	通过event.target得到发生事件的DOM元素对象
+        */
+
+        myRef = React.createRef()
+        showData = () => {
+          console.log(this.myRef.current.value)
+        }
+        showData2 = e => {
+          console.log(e.target)
+        }
+
+        render() {
+          return (
+            <div>
+              <input
+                ref={this.myRef}
+                type="text"
+                placeholder="点击按钮提示数据"
+              />
+              &nbsp;
+              <button onClick={this.showData}>点我提示左侧的数据</button>&nbsp;
+              <input onBlur={this.showData2} placeholder='失去焦点' type="text" />
+            </div>
+          )
+        }
+      }
+      ReactDOM.render(<Demo />, document.getElementById("test1"))
+    </script>
+  </body>
+</html>
