@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let o = { a: 1 }
+      o.b = 2
+      console.log(o)
+      const des = Object.getOwnPropertyDescriptors(o)
+      console.log(des)
+
+      Object.defineProperty(o, "b", {
+        value: 2,
+        writable: false,
+        enumerable: false,
+        configurable: true,
+      })
+      //a和b都是数据属性，但特征值变化了
+      const a = Object.getOwnPropertyDescriptor(o, "a") // {value: 1, writable: true, enumerable: true, configurable: true}
+      const b = Object.getOwnPropertyDescriptor(o, "b") // {value: 2, writable: false, enumerable: false, configurable: true}
+      o.b = 3
+      console.log(o.b) // 2
+      console.log(a, b);
+
+      let obj = {
+        get a () {
+          return 1233
+        }
+      }
+      console.log(obj);
+    </script>
+  </body>
+</html>

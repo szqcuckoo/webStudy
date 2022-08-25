@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var cat = {
+        say() {
+          console.log("meow~")
+        },
+        jump() {
+          console.log("jump")
+        },
+      }
+
+      var tiger = Object.create(cat, {
+        say: {
+          writable: true,
+          configurable: true,
+          enumerable: true,
+          value: function () {
+            console.log("roar!")
+          },
+        },
+      })
+
+      var anotherCat = Object.create(cat)
+
+      anotherCat.say()
+
+      anotherCat.jump()
+
+      var anotherTiger = Object.create(tiger)
+
+      anotherTiger.say()
+
+      anotherTiger.jump()
+
+      var o = new Object()
+      var n = new Number()
+      var s = new String()
+      var b = new Boolean()
+      var d = new Date()
+      var arg = (function () {
+        return arguments
+      })()
+      var r = new RegExp()
+      var f = new Function()
+      var arr = new Array()
+      var e = new Error()
+      console.log(
+        [o, n, s, b, d, arg, r, f, arr, e].map(v =>
+          Object.prototype.toString.call(v)
+        )
+      )
+      // throw new Error('kkkk')
+    </script>
+  </body>
+</html>

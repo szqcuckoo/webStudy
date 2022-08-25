@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<input type="text" name="" id="text">
+<button id="btn2">获取输入的文本</button>
+<button id="btn1">原生</button>
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+<!--<script src="./jquery/jquery.min.js"></script>-->
+<script src="./jquery/jquery.js"></script>
+<script>
+    console.log($, $(), )
+    $(function () {
+        $('#btn2').click(function () {
+            let text = $('#text').val()
+            alert(text)
+        })
+    })
+
+// window.onload = function () {
+//     let btn1 = document.getElementById('btn1')
+//     btn1.onclick = function () {
+//         let text = document.getElementById('text').value
+//         alert(text)
+//     }
+// }
+</script>
 </body>
 </html>
