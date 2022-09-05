@@ -1,14 +1,40 @@
 import React from 'react'
 import './001_demo_game.css'
 function Square(props) {
+    // 正方形组件
     return (
       <button className="square" onClick={props.onClick}>
         {props.value}
       </button>
     );
   }
+
+  const BoardCopy = (props) => {
+		// * 函数式写法：props 的事件方式的 this 会丢失，因此需要手动绑定一下
+    const renderSquare = i => <Square value={props.squares[i]} onClick={props.onClick(i)} />
+    return (
+        <div>
+          <div className="board-row">
+            {renderSquare(0)}
+            {renderSquare(1)}
+            {renderSquare(2)}
+          </div>
+          <div className="board-row">
+            {renderSquare(3)}
+            {renderSquare(4)}
+            {renderSquare(5)}
+          </div>
+          <div className="board-row">
+            {renderSquare(6)}
+            {renderSquare(7)}
+            {renderSquare(8)}
+          </div>
+        </div>
+    )
+  }
   
   class Board extends React.Component {
+    // 棋盘组件
     renderSquare(i) {
       return (
         <Square
@@ -107,9 +133,9 @@ export default  class Game extends React.Component {
       return (
         <div className="game">
           <div className="game-board">
-            <Board
+            <BoardCopy
               squares={current.squares}
-              onClick={i => this.handleClick(i)}
+              onClick={i => this.handleClick.bind(this,i)}
             />
           </div>
           <div className="game-info">
