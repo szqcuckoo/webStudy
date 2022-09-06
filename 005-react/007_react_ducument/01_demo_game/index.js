@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// CoreConcept
+import Game from "./001_demo_game";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div>
-    <h2>React</h2>
+    <Game />
   </div>
 );
