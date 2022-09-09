@@ -1,0 +1,107 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .demo {
+        display: flex;
+        width: 90vw;
+      }
+
+      .panel {
+        background-color: pink;
+        margin: 10px;
+        flex: 0.5;
+        height: 80vh;
+        border-radius: 50px;
+        transition: all 0.5s;
+      }
+
+      .panel.active {
+        flex: 5;
+        transition: all 0.5s;
+      }
+
+      /* body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      } */
+
+      .container {
+        display: flex;
+      }
+
+      li {
+        list-style: none;
+        border-radius: 25px;
+        width: 10vw;
+        margin: 2vw;
+        height: 80vh;
+        transition: all .5s;
+      }
+
+      input:checked + li {
+        height: 80vh;
+        width: 25vw;
+        transition: all .5s;
+      }
+
+      .container input {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demo">
+      <div id="1" class="panel active">
+        <h2></h2>
+      </div>
+      <div id="2" class="panel">
+        <h2></h2>
+      </div>
+      <div id="3" class="panel">
+        <h2></h2>
+      </div>
+      <div id="4" class="panel">
+        <h2></h2>
+      </div>
+      <div id="5" class="panel">
+        <h2></h2>
+      </div>
+    </div>
+
+    <input type="radio">ddffd
+
+    <div class="container">
+      <label for="1">
+        <input type="radio" name="img" id="1" />
+        <li style="background-image: url('./1.avif');"></li>
+      </label>
+      <label for="2">
+        <input type="radio" name="img" id="2" />
+        <li style="background-image: url('./1.avif');"></li>
+      </label>
+      <label for="3">
+        <input type="radio" name="img" id="3" />
+        <li style="background-image: url('./1.avif');"></li>
+      </label>
+      <label for="4">
+        <input type="radio" name="img" id="4" />
+        <li style="background-image: url('./1.avif');"></li>
+      </label>
+      <label for="5">
+        <input type="radio" name="img" id="5" />
+        <li style="background-image: url('./1.avif');"></li>
+      </label>
+      <label for="6">
+        <input type="radio" name="img" id="6" />
+        <li style="background-image: url('./1.avif');"></li>
+      </label>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
